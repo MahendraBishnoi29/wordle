@@ -1,11 +1,17 @@
-import { useState } from "react";
-
 import "./App.css";
+import Game from "./components/Game";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const darkHandler = (dark) => {
+    if (dark) document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+  };
 
-  return <div className="App"></div>;
+  return (
+    <div className="app dark:bg-zinc-800">
+      <Game darkness={darkHandler} />
+    </div>
+  );
 }
 
 export default App;
